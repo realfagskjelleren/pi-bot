@@ -6,6 +6,7 @@ specifiers:
   '@types/node': ^18.13.0
   discord.js: ^14.7.1
   discordx: ^11.7.0
+  dotenv: ^16.0.3
   nodemon: ^2.0.20
   prettier: ^2.8.4
   ts-node: ^10.9.1
@@ -16,6 +17,7 @@ dependencies:
   '@discordx/pagination': 3.4.1_discord.js@14.8.0
   discord.js: 14.8.0
   discordx: 11.7.4_discord.js@14.8.0
+  dotenv: 16.0.3
 
 devDependencies:
   '@types/node': 18.15.10
@@ -312,6 +314,11 @@ packages:
       discord.js: 14.8.0
       lodash: 4.17.21
       tslib: 2.5.0
+    dev: false
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /fast-deep-equal/3.1.3:
