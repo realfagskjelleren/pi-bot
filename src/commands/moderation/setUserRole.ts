@@ -1,4 +1,10 @@
-import { ApplicationCommandOptionType, CommandInteraction, GuildMember, Role, User } from 'discord.js';
+import {
+	ApplicationCommandOptionType,
+	CommandInteraction,
+	GuildMember,
+	Role,
+	User,
+} from 'discord.js';
 import { Discord, Slash, SlashOption } from 'discordx';
 
 @Discord()
@@ -10,27 +16,41 @@ export class SetUserRole {
 			name: 'user',
 			required: true,
 			type: ApplicationCommandOptionType.User,
-		}) user: User,
-        @SlashOption({
-            description: 'The role you wish to give the user',
-            name: 'role',
-            required: true,
-            type: ApplicationCommandOptionType.Role,
-        }) role: Role,
-        interaction: CommandInteraction,
+		})
+		user: User,
+		@SlashOption({
+			description: 'The role you wish to give the user',
+			name: 'role',
+			required: true,
+			type: ApplicationCommandOptionType.Role,
+		})
+		role: Role,
+		interaction: CommandInteraction
 	) {
-        const member = interaction.guild?.members.cache.get(user.id);
+		const member = interaction.guild?.members.cache.get(user.id);
 
-        if (!member) {
-            interaction.reply({ephemeral: true, content:`Couldn't find user ${user} on this server`});
-            return;
-        }
-        if (role.position >= (interaction.member as GuildMember).roles.highest.position ) {
-            interaction.reply({ephemeral: true, content:`You cannot give a role higher than your own`});
-            return;
-        }
+		if (!member) {
+			interaction.reply({
+				ephemeral: true,
+				content: `Couldn't find user ${user} on this server`,
+			});
+			return;
+		}
+		if (
+			role.position >=
+			(interaction.member as GuildMember).roles.highest.position
+		) {
+			interaction.reply({
+				ephemeral: true,
+				content: `You cannot give a role higher than your own`,
+			});
+			return;
+		}
 
-        member.roles.add(role);
-        interaction.reply({ephemeral: true, content:`Added role ${role} to ${user}`});
-    }
+		member.roles.add(role);
+		interaction.reply({
+			ephemeral: true,
+			content: `Added role ${role} to ${user}`,
+		});
+	}
 }
