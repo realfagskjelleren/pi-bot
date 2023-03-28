@@ -1,9 +1,16 @@
 import {
-  ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonInteraction, ButtonStyle, CommandInteraction,
-  EmbedBuilder,
-  GuildMember, MessageActionRowComponentBuilder, Role
+	ActionRowBuilder,
+	ApplicationCommandOptionType,
+	ButtonBuilder,
+	ButtonInteraction,
+	ButtonStyle,
+	CommandInteraction,
+	EmbedBuilder,
+	GuildMember,
+	MessageActionRowComponentBuilder,
+	Role,
 } from 'discord.js';
-import { ButtonComponent, Discord, Slash, SlashOption } from 'discordx';
+import { ButtonComponent, Discord, Guild, Slash, SlashOption } from 'discordx';
 
 @Discord()
 export class ReactionRole {
@@ -49,6 +56,32 @@ export class ReactionRole {
 		label: string,
 		interaction: CommandInteraction
 	): Promise<void> {
+		if (
+			(interaction.member as GuildMember).roles.highest.position <=
+			role.position
+		) {
+			interaction.reply({
+				ephemeral: true,
+				content:
+					'You cannot create a reaction role higher than or equal your own',
+			});
+			return;
+		}
+
+		// Finding the bots highest role in the guild (server)
+		const guild = interaction.client.guilds.cache.get(interaction.guildId!);
+		const member = guild?.members.cache.get(
+			interaction.client.user.id
+		) as GuildMember;
+		if (member.roles.highest.position <= role.position) {
+			interaction.reply({
+				ephemeral: true,
+				content:
+					'You cannot create a reaction role higher than or equal mine (the bot)',
+			});
+			return;
+		}
+
 		this.role = role;
 		if (reply) this.reply = reply;
 
@@ -77,12 +110,22 @@ export class ReactionRole {
 
 	@ButtonComponent({ id: 'rolebtn' })
 	btn(interaction: ButtonInteraction): void {
-		if (this.role) {
-			(interaction.member as GuildMember).roles.add(this.role);
+		if (!this.role) {
+			interaction.reply({ ephemeral: true, content: 'Role not found' });
+			return;
+		}
+		if ((interaction.member as GuildMember).roles.cache.has(this.role?.id)) {
 			interaction.reply({
 				ephemeral: true,
-				content: `${this.reply ?? 'You now have the role ' + this.role.name}`,
+				content: 'You already have this role',
 			});
+			return;
 		}
+
+		(interaction.member as GuildMember).roles.add(this.role);
+		interaction.reply({
+			ephemeral: true,
+			content: `${this.reply ?? 'You now have the role ' + this.role?.name}`,
+		});
 	}
 }
