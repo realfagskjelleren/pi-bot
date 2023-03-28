@@ -8,8 +8,8 @@ import {
 import { Discord, Slash, SlashOption } from 'discordx';
 
 @Discord()
-export class SetUserRole {
-	@Slash({ description: "Set a user's role", name: 'set-user-role' })
+export class AddUserRole {
+	@Slash({ description: "Add a role to a user", name: 'add-user-role' })
 	async execute(
 		@SlashOption({
 			description: 'The user you wish to give a role to',
