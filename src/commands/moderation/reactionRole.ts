@@ -10,7 +10,7 @@ export class ReactionRole {
 	private role?: Role;
 	private reply?: string;
 
-	@Slash({ description: 'Rection role', name: 'reactrole' })
+	@Slash({ description: 'Rection role', name: 'reaction-role' })
 	async execute(
 		@SlashOption({
 			description: 'Role',
