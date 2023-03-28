@@ -46,6 +46,13 @@ export class SetUserRole {
 			});
 			return;
 		}
+		if (member.roles.cache.has(role.id)) {
+			interaction.reply({
+				ephemeral: true,
+				content: `User ${user} already has role ${role}`,
+			});
+			return;
+		}
 
 		member.roles.add(role);
 		interaction.reply({
