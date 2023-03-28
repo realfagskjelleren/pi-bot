@@ -1,5 +1,5 @@
 import { sanitizeUrl } from '@braintree/sanitize-url';
-import type { GuildScheduledEvent } from 'discord.js';
+import type { Attachment, GuildScheduledEvent } from 'discord.js';
 import {
 	ApplicationCommandOptionType,
 	CommandInteraction,
@@ -65,11 +65,11 @@ export class CreateScheduledEvent {
 		}) location: string = 'Realfagskjelleren',
 
 		@SlashOption({
-			description: 'Url to event image (Optional, defaults to rfk logo)',
-			name: 'image-url',
+			description: 'Upload event image (Optional, defaults to rfk logo)',
+			name: 'image',
 			required: false,
-			type: ApplicationCommandOptionType.String,
-		}) image: string = 'https://images.squarespace-cdn.com/content/v1/61eeb21558235b048d9ca47c/1665414460649-WT01WM3GU3255GX9J2VX/Lyskasse_oransj_svart.png?format=1500w',
+			type: ApplicationCommandOptionType.Attachment,
+		}) image: Attachment | string = 'https://images.squarespace-cdn.com/content/v1/61eeb21558235b048d9ca47c/1665414460649-WT01WM3GU3255GX9J2VX/Lyskasse_oransj_svart.png?format=1500w',
 
 		@SlashOption({
 			description: 'Event Voice Channel Name (Optional, defaults to "General")',
@@ -94,7 +94,7 @@ export class CreateScheduledEvent {
 			description: description,
 			scheduledStartTime: new Date(startTime),
 			scheduledEndTime: new Date(endTime),
-			image: sanitizeUrl(image),
+			image: ((typeof image == "string" ? sanitizeUrl(image) : image.url)).replace('http://', 'https://'),
 			privacyLevel: 2 as GuildScheduledEventPrivacyLevel,
 			entityType: event_type_int,
 			entityMetadata: { location: location },
