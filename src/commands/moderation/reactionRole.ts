@@ -10,7 +10,7 @@ import {
 	MessageActionRowComponentBuilder,
 	Role,
 } from 'discord.js';
-import { ButtonComponent, Discord, Guild, Slash, SlashOption } from 'discordx';
+import { ButtonComponent, Discord, Slash, SlashOption } from 'discordx';
 
 @Discord()
 export class ReactionRole {
