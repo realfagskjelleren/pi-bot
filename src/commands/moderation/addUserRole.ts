@@ -7,6 +7,7 @@ import {
 } from 'discord.js';
 import { Discord, Slash, SlashOption } from 'discordx';
 
+// TODO: Create command groups and subgroups
 @Discord()
 export class AddUserRole {
 	@Slash({ description: "Add a role to a user", name: 'add-user-role' })
