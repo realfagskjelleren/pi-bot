@@ -12,7 +12,6 @@ import {
 	InteractionReplyOptions
 } from 'discord.js';
 import { Discord, Slash, SlashChoice, SlashOption } from 'discordx';
-import { bot } from '../../main.js';
 
 @Discord()
 export class CreateScheduledEvent {
@@ -82,9 +81,7 @@ export class CreateScheduledEvent {
 	): Promise<void> {
 		const event_type_int: number = GuildScheduledEventEntityType[event_type as keyof typeof GuildScheduledEventEntityType];
 		await interaction.deferReply({ ephemeral: true });
-		const guild: Guild = bot.guilds.cache.get(
-			process.env.GUILD_ID as string
-		) as Guild;
+		const guild: Guild = interaction.client.guilds.cache.get( interaction.guildId as string ) as Guild;
 		const manager: GuildScheduledEventManager = guild.scheduledEvents;
 		const channel_id = guild.channels.cache.find(
 			(channel) => channel.name === channel_name
