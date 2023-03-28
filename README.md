@@ -1,99 +1,157 @@
-<div>
-  <p align="center">
-    <a href="https://discordx.js.org" target="_blank" rel="nofollow">
-      <img src="https://discordx.js.org/discordx.svg" width="546" />
-    </a>
-  </p>
-  <p align="center">
-    <a href="https://discordx.js.org/discord"
-      ><img
-        src="https://img.shields.io/discord/874802018361950248?color=5865F2&logo=discord&logoColor=white"
-        alt="Discord server"
-    /></a>
-    <a href="https://www.npmjs.com/package/discordx"
-      ><img
-        src="https://img.shields.io/npm/v/discordx.svg?maxAge=3600"
-        alt="NPM version"
-    /></a>
-    <a href="https://www.npmjs.com/package/discordx"
-      ><img
-        src="https://img.shields.io/npm/dt/discordx.svg?maxAge=3600"
-        alt="NPM downloads"
-    /></a>
-    <a href="https://github.com/discordx-ts/discordx/actions"
-      ><img
-        src="https://github.com/discordx-ts/discordx/workflows/Build/badge.svg"
-        alt="Build status"
-    /></a>
-    <a href="https://www.paypal.me/vijayxmeena"
-      ><img
-        src="https://img.shields.io/badge/donate-paypal-F96854.svg"
-        alt="paypal"
-    /></a>
-  </p>
-  <p align="center">
-    <b> Create a discord bot with TypeScript and Decorators! </b>
-  </p>
-</div>
+# Pibot
 
-# 📖 Introduction
+## Description
 
-A starter template equipped with several interaction commands and one event.
+Discord bot for RFKs discordserver.
 
-# 🏗 Development
+Written in [discordjs]() / [discordx]()
+
+## Project Folder Structure
 
 ```
-npm install
-npm run dev
+pi-bot
+├── LICENSE
+├── node_modules
+├── package.json
+├── pnpm-lock.yaml
+├── README.md
+├── src
+│   ├── commands
+│   │   ├── community
+│   │   ├── moderate
+│   │   ├── member
+│   │   └── employee
+│   ├── events
+│   │   └── common.ts
+│   └── main.ts
+└── tsconfig.json
 ```
 
-If you want to use [Nodemon](https://nodemon.io/) to auto-reload while in development:
+## Command Folders
 
-```
-npm run watch
-```
+### Community
 
-# 💻 Production
+This folder is intended for fun / commands that concern the community
 
-```
-npm install --production
-npm run build
-npm run start
-```
+#### Example Ideas:
 
-# 🐋 Docker
+- Sending cheers / cudos
+- Getting memes
+- Games (although that could probably go in a subfolder)
 
-To start your application:
+### Moderate
 
-```
-docker-compose up -d
-```
+This folder is intended for commands that are needed / useful for moderating the server.
 
-To shut down your application:
+#### Examples:
 
-```
-docker-compose down
-```
+- CRUD
+  - Scheduled events
+  - Commands
+  - Roles
+  - Permissions
+- User moderation
+  - Ban (time limited or lifetime)
+  - Kick
+  - Mute
+  - Warn
+  - CRUD
+    - Roles
+    - Permissions
+    - Part of events
 
-To view your application's logs:
+### Member
 
-```
-docker-compose logs
-```
+This folder is intended for commands that are for members of the discord server in general.
 
-For the full command list please view the [Docker Documentation](https://docs.docker.com/engine/reference/commandline/cli/).
+## Example Ideas
 
-# 📜 Documentation
+- CRUDS
+  - Reminder
+  - Personal note
+- See upcoming events member is taking part in
 
-- [discordx.js.org](https://discordx.js.org)
-- [Tutorials (dev.to)](https://dev.to/samarmeena/series/14317)
+### Employee
 
-# ☎️ Need help?
+This folder is intended for commands that are useful for an 'employee' of RFK.
 
-- [Check frequently asked questions](https://discordx.js.org/docs/faq)
-- [Check examples](https://github.com/discordx-ts/discordx/tree/main/packages/discordx/examples)
-- Ask in the community [Discord server](https://discordx.js.org/discord)
+## Example Ideas:
 
-# 💖 Thank you
+- See
+  - Upcoming internal events (galla, jub, etc)
+  - Upcoming shifts
+  - Skigard
+- Sign up to / request access / queue
+  - Upcoming internal events
 
-You can support [discordx](https://www.npmjs.com/package/discordx) by giving it a [GitHub](https://github.com/discordx-ts/discordx) star.
+## Planned features
+
+- [ ] CRUD
+  - [ ] Events
+    - [ ] Privacy Level
+      - [ ] SS
+      - [ ] S
+    - [ ] Internal
+      - [ ] Meeting
+      - [ ] Event / Happening
+    - [ ] Public -[ ] Baråpning - [ ] Fredagsåpent - [ ] Tema - [ ] Generell Baråpning [customizeable]
+      - [ ] General event [customizable]
+  - [ ] Roles
+  - [ ] Reaction Roles
+  - [ ] Custom Auto-Replies
+    - [ ] Member
+    - [ ] Role
+    - [ ] Channel
+    - [ ] Server
+  - [ ] Reminders
+    - [ ] Personal (Member)
+    - [ ] Role
+    - [ ] Channel
+    - [ ] Server
+  - [ ] Notes
+    - [ ] Personal (Member)
+    - [ ] Role
+    - [ ] Channel
+    - [ ] Server
+- [ ] Moderation
+  - [ ] Commands
+    - [ ] Availability by role
+  - [ ] Member
+    - [ ] Roles
+      - [ ] Add
+      - [ ] Remove
+    - [ ] Kick
+    - [ ] Ban
+      - [ ] Time limited
+      - [ ] Lifetime
+- [ ] Member
+  - [ ] Note
+  - [ ] Reminder
+  - [ ] See upcoming events theyre signed up for
+- [ ] 'Employee'
+  - [ ] See upcoming
+    - [ ] Meeting
+    - [ ] Shift
+    - [ ] Internal Events
+  - [ ] Take part in
+    - [ ] Meeting
+  - [ ] Apply to / sign up
+    - [ ] Internal Events
+  - [ ] Absence
+    - [ ] Inform of
+    - [ ] See own
+    - [ ] See others
+  - [ ] See skigards awarded to them
+  - [ ] Shift
+    - [ ] See
+      - [ ] Shift manager
+      - [ ] Shit coworker
+      - [ ] own Upcoming
+      - [ ] Others Upcoming
+    - [ ] Swap
+      - [ ] Suggest
+      - [ ] Approve / deny
+- [ ] Community
+  - [ ] Cheers
+    - [ ] Send ( to user )
+    - [ ] Reply
