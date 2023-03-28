@@ -21,10 +21,10 @@ export class SetUserRole {
 	) {
         const member = interaction.guild?.members.cache.get(user.id);
         if (!member) {
-            interaction.reply(`Couldn't find user ${user} on this server`);
+            interaction.reply({ephemeral: true, content:`Couldn't find user ${user} on this server`});
             return;
         }
         member.roles.add(role);
-        interaction.reply(`Added role ${role} to ${user}`);
+        interaction.reply({ephemeral: true, content:`Added role ${role} to ${user}`});
     }
 }
