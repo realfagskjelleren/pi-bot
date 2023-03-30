@@ -1,5 +1,5 @@
 import { dirname, importx } from '@discordx/importer';
-import { GatewayIntentBits, Interaction, Message } from 'discord.js';
+import { ColorResolvable, GatewayIntentBits } from 'discord.js';
 import { Client } from 'discordx';
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -21,24 +21,10 @@ export const bot = new Client({
 	},
 });
 
-bot.once('ready', async () => {
-	await bot.guilds.fetch(); // Make sure all guilds are cached
-	await bot.initApplicationCommands(); // Sync all appcommands with Discord
-
-	const guilds = bot.guilds.cache;
-	console.log('🤖 --< I AM... ALIVE? >');
-	console.log(
-		`🤖 --< Logged in as '${bot.user?.tag}' in ${guilds.size} servers >`
-	);
-});
-
-bot.on('interactionCreate', (interaction: Interaction) => {
-	bot.executeInteraction(interaction);
-});
-
-bot.on('messageCreate', (message: Message) => {
-	bot.executeCommand(message);
-});
+export const GIPHY_ATR_IMG: string = 'https://imgur.com/a/hWlc9qY'; // FIXME: GIPHY attribution image doesnt work
+export const RFK_ORANGE: ColorResolvable = '#FD8200';
+export const RFK_BANNER: string =
+	'https://images.squarespace-cdn.com/content/v1/61eeb21558235b048d9ca47c/1665414460649-WT01WM3GU3255GX9J2VX/Lyskasse_oransj_svart.png?format=1500w';
 
 const run = async () => {
 	await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`); // ECMAScript
