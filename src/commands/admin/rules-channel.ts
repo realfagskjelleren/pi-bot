@@ -1,4 +1,3 @@
-import { SlashGroup } from "discordx";
 import {
   ActionRowBuilder,
   ApplicationCommandOptionType,
@@ -8,7 +7,7 @@ import {
   MessageActionRowComponentBuilder,
   Role,
 } from "discord.js";
-import { Discord, Slash, SlashChoice, SlashOption } from "discordx";
+import { Discord, Slash, SlashChoice, SlashGroup, SlashOption } from "discordx";
 import { Rolebtn } from "../../components/role-button.js";
 import { RFK_BANNER, RFK_ORANGE } from "../../main.js";
 
