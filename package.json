@@ -18,10 +18,14 @@
     "@discordx/pagination": "^3.4.0",
     "discord.js": "^14.7.1",
     "discordx": "^11.7.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "gif-search": "^3.0.3"
   },
   "devDependencies": {
     "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.37.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
