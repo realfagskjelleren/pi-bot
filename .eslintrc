@@ -1,5 +1,12 @@
 {
   "root": true,
+  "ignorePatterns": [
+    "node_modules/*",
+    ".dist/*",
+    "!.prettierrc",
+    "!.eslintrc",
+    "LICENSE"
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "extends": [
