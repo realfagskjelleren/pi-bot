@@ -6,84 +6,6 @@ Discord bot for RFKs discordserver.
 
 Written in [discordjs]() / [discordx]()
 
-## Project Folder Structure
-
-```
-pi-bot
-├── LICENSE
-├── node_modules
-├── package.json
-├── pnpm-lock.yaml
-├── README.md
-├── src
-│   ├── commands
-│   │   ├── community
-│   │   ├── moderate
-│   │   ├── member
-│   │   └── employee
-│   ├── events
-│   │   └── common.ts
-│   └── main.ts
-└── tsconfig.json
-```
-
-## Command Folders
-
-### Community
-
-This folder is intended for fun / commands that concern the community
-
-#### Example Ideas:
-
-- Sending cheers / cudos
-- Getting memes
-- Games (although that could probably go in a subfolder)
-
-### Moderate
-
-This folder is intended for commands that are needed / useful for moderating the server.
-
-#### Examples:
-
-- CRUD
-  - Scheduled events
-  - Commands
-  - Roles
-  - Permissions
-- User moderation
-  - Ban (time limited or lifetime)
-  - Kick
-  - Mute
-  - Warn
-  - CRUD
-    - Roles
-    - Permissions
-    - Part of events
-
-### Member
-
-This folder is intended for commands that are for members of the discord server in general.
-
-## Example Ideas
-
-- CRUDS
-  - Reminder
-  - Personal note
-- See upcoming events member is taking part in
-
-### Employee
-
-This folder is intended for commands that are useful for an 'employee' of RFK.
-
-## Example Ideas:
-
-- See
-  - Upcoming internal events (galla, jub, etc)
-  - Upcoming shifts
-  - Skigard
-- Sign up to / request access / queue
-  - Upcoming internal events
-
 ## Planned features
 
 - [ ] CRUD
@@ -94,10 +16,16 @@ This folder is intended for commands that are useful for an 'employee' of RFK.
     - [ ] Internal
       - [ ] Meeting
       - [ ] Event / Happening
-    - [ ] Public -[ ] Baråpning - [ ] Fredagsåpent - [ ] Tema - [ ] Generell Baråpning [customizeable]
-      - [ ] General event [customizable]
-  - [ ] Roles
-  - [ ] Reaction Roles
+    - [ ] Public 
+      - [ ] Baråpning
+      - [x] Fredagsåpent
+      - [ ] Tema
+      - [x] Generell Baråpning [customizeable]
+      - [x] General event [customizable]
+  - [x] Rules channel
+    - [x] Verify read
+  - [x] Roles
+  - [x] Reaction Roles
   - [ ] Custom Auto-Replies
     - [ ] Member
     - [ ] Role
@@ -127,7 +55,7 @@ This folder is intended for commands that are useful for an 'employee' of RFK.
 - [ ] Member
   - [ ] Note
   - [ ] Reminder
-  - [ ] See upcoming events theyre signed up for
+  - [ ] See upcoming events they're signed up for
 - [ ] 'Employee'
   - [ ] See upcoming
     - [ ] Meeting
@@ -152,6 +80,7 @@ This folder is intended for commands that are useful for an 'employee' of RFK.
       - [ ] Suggest
       - [ ] Approve / deny
 - [ ] Community
+  - [x] auto welcome message
   - [ ] Cheers
     - [ ] Send ( to user )
     - [ ] Reply
